@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://saltedfish.org/comments/index.html</loc>
+    
+    <lastmod>2019-03-14T09:57:17.127Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://saltedfish.org//404.html</loc>
     
     <lastmod>2019-03-14T09:46:13.070Z</lastmod>
@@ -9,23 +16,9 @@
   </url>
   
   <url>
-    <loc>https://saltedfish.org/comments/index.html</loc>
-    
-    <lastmod>2019-03-14T09:44:39.068Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://saltedfish.org/Python/using-python-to-make-a-vpn-script.html</loc>
     
     <lastmod>2018-07-28T04:48:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://saltedfish.org/Python/package-and-release-exe-program-with-PyInstaller.html</loc>
-    
-    <lastmod>2018-07-27T03:01:14.000Z</lastmod>
     
   </url>
   
@@ -38,6 +31,13 @@
   
   <url>
     <loc>https://saltedfish.org/Rules/markdown-common-syntax.html</loc>
+    
+    <lastmod>2018-07-27T03:01:14.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://saltedfish.org/Python/package-and-release-exe-program-with-PyInstaller.html</loc>
     
     <lastmod>2018-07-27T03:01:14.000Z</lastmod>
     
@@ -58,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://saltedfish.org/Python/custom-picture-pipeline(Imagespipeline)-to-download-pictures.html</loc>
+    <loc>https://saltedfish.org/Python/several-small-methods-to-avoid-being-forbidden-in-the-process-of-web-crawler.html</loc>
     
     <lastmod>2018-05-28T11:39:47.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://saltedfish.org/Python/several-small-methods-to-avoid-being-forbidden-in-the-process-of-web-crawler.html</loc>
+    <loc>https://saltedfish.org/Python/custom-picture-pipeline(Imagespipeline)-to-download-pictures.html</loc>
     
     <lastmod>2018-05-28T11:39:47.000Z</lastmod>
     
