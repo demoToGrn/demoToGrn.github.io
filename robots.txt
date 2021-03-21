@@ -22,5 +22,5 @@ Disallow: /fonts
 Disallow: /vendors
 Disallow: /fancybox
 
-Sitemap: http://cdd233.github.io/sitemap.xml
-Sitemap: http://cdd233.github.io/baidusitemap.xml
+Sitemap: https://cdd233.github.io/sitemap.xml
+Sitemap: https://cdd233.github.io/baidusitemap.xml

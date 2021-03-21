@@ -1,3 +1,10 @@
 https://cdd233.github.io/Python/package-and-release-exe-program-with-PyInstaller.html
 https://cdd233.github.io/Python/several-small-methods-to-avoid-being-forbidden-in-the-process-of-web-crawler.html
 https://cdd233.github.io/Python/custom-picture-pipeline(Imagespipeline)-to-download-pictures.html
+https://cdd233.github.io/Python/custom-picture-pipeline(Imagespipeline)-to-download-pictures.html
+https://cdd233.github.io/Python/using-python-to-make-a-vpn-script.html
+https://cdd233.github.io/Technique/hexo-build-a-personal-static-blog-to-gitpages.html
+https://cdd233.github.io/Porse/about-my-dream.html
+https://cdd233.github.io/Rules/sql-common-syntax.html
+https://cdd233.github.io/Rules/markdown-common-syntax.html
+https://cdd233.github.io/Rules/regex.html
