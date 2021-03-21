@@ -1,0 +1,3 @@
+https://cdd233.github.io/Python/package-and-release-exe-program-with-PyInstaller.html
+https://cdd233.github.io/Python/several-small-methods-to-avoid-being-forbidden-in-the-process-of-web-crawler.html
+https://cdd233.github.io/Python/custom-picture-pipeline(Imagespipeline)-to-download-pictures.html
