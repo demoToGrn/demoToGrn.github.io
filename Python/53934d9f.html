@@ -22,17 +22,23 @@
     var CONFIG = {"hostname":"cdd233.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="——へ Too Handsome To Annoyance .">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cdd233">
-<meta property="og:url" content="https://cdd233.github.io/tags/Git/index.html">
+  <meta name="description" content="在 window 下每次运行 python 脚本都得打开 CMD ，简直难受得一批！找了一下可以打包成 exe 程序的库，事情一下子就轻松得多了！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 PyInstaller 打包发布 exe 程序">
+<meta property="og:url" content="https://cdd233.github.io/Python/53934d9f.html">
 <meta property="og:site_name" content="cdd233">
-<meta property="og:description" content="——へ Too Handsome To Annoyance .">
+<meta property="og:description" content="在 window 下每次运行 python 脚本都得打开 CMD ，简直难受得一批！找了一下可以打包成 exe 程序的库，事情一下子就轻松得多了！">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://p925vil75.bkt.gdipper.com/package-and-release-exe-program-with-PyInstaller_01.webp">
+<meta property="article:published_time" content="2018-07-25T05:11:56.000Z">
+<meta property="article:modified_time" content="2021-04-02T02:03:07.211Z">
 <meta property="article:author" content="Tromixfuc">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyInstaller">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://p925vil75.bkt.gdipper.com/package-and-release-exe-program-with-PyInstaller_01.webp">
 
-<link rel="canonical" href="https://cdd233.github.io/tags/Git/">
+<link rel="canonical" href="https://cdd233.github.io/Python/53934d9f.html">
 
 
 <script id="page-configurations">
@@ -40,7 +46,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -58,7 +64,7 @@
         }
     })();
 </script>
-  <title>标签: Git | cdd233</title>
+  <title>利用 PyInstaller 打包发布 exe 程序 | cdd233</title>
   
 
 
@@ -204,57 +210,180 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Git
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cdd233.github.io/Python/53934d9f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Tromixfuc">
+      <meta itemprop="description" content="——へ Too Handsome To Annoyance .">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cdd233">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          利用 PyInstaller 打包发布 exe 程序
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-25 13:11:56" itemprop="dateCreated datePublished" datetime="2018-07-25T13:11:56+08:00">2018-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-02 10:03:07" itemprop="dateModified" datetime="2021-04-02T10:03:07+08:00">2021-04-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Python/53934d9f.html" class="post-meta-item leancloud_visitors" data-flag-title="利用 PyInstaller 打包发布 exe 程序" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">在 window 下每次运行 python 脚本都得打开 CMD ，简直难受得一批！找了一下可以打包成 exe 程序的库，事情一下子就轻松得多了！</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2015</span>
+        <p>在 window 下每次运行 python 脚本都得打开 CMD ，简直难受得一批！找了一下可以打包成 exe 程序的库，事情一下子就轻松得多了！</p>
+<h5 id="一、安装准备"><a href="#一、安装准备" class="headerlink" title="一、安装准备"></a>一、安装准备</h5><h6 id="0x01-安装-pywin32"><a href="#0x01-安装-pywin32" class="headerlink" title="0x01. 安装 pywin32"></a>0x01. 安装 pywin32</h6><p>下载适用于 window 版本和 python 版本匹配的 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/pywin32/files/pywin32/">pywin32</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install &lt;pywin32本地文件&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h6 id="0x02-安装-PyInstaller"><a href="#0x02-安装-PyInstaller" class="headerlink" title="0x02. 安装 PyInstaller"></a>0x02. 安装 PyInstaller</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install pyinstaller</span><br></pre></td></tr></table></figure>
+
+<h5 id="二、PyInstaller-部分参数"><a href="#二、PyInstaller-部分参数" class="headerlink" title="二、PyInstaller 部分参数"></a>二、PyInstaller 部分参数</h5><ul>
+<li>-v，–version　　　　　　　　　　　打印 <code>PyInstaller </code>当前版本</li>
+<li>-F，–onefile　　　　　　　　　　　 生成单个捆绑的可执行程序</li>
+<li>-D，–onedir　　　　　　　　　　　创建包含可执行文件的单目录（默认） </li>
+<li>-n &lt;Name&gt;，–name &lt;Name&gt;　　　　自定义生成的程序名</li>
+<li>-p &lt;Dir&gt;，–paths &lt;Dir&gt;　　　　　　设置导入库的路径（和使用 <code>PYTHONPATH</code> 效果相似），<br> 允许多个路径，以 <code>:</code> 分割</li>
+<li>-i，–icon=&lt;File&gt;　　　　　　　　　 设置程序的图标</li>
+<li>-c，–nowindowed，–console　　　　打开标准 <code>i/o</code> 的控制台窗口（默认）</li>
+<li>-w，–windowed，–noconsole　　　不为标准 <code>i/o</code> 提供控制台窗口</li>
+<li>–upx-dir=&lt;File&gt;　　　UPX 主要用于压缩，默认会自动搜索 <code>pyinstaller</code> 根目录或项目根目录，<br> 否则需要添加该参数并指定 <code>upx.exe</code> 的路径，需要自己<a target="_blank" rel="noopener" href="https://github.com/upx/upx/releases">下载</a></li>
+<li>–noupx　　　　　　　　　　　　　　不使用 UPX</li>
+<li>–version-file=&lt;File&gt;　　　　　　　　添加版本信息</li>
+</ul>
+<h5 id="三、打包并发布程序"><a href="#三、打包并发布程序" class="headerlink" title="三、打包并发布程序"></a>三、打包并发布程序</h5><h6 id="制作程序的版本信息："><a href="#制作程序的版本信息：" class="headerlink" title="制作程序的版本信息："></a>制作程序的版本信息：</h6><p><code>pyi-grab_version</code> 目录：<code>D:\Python\Python36\Scripts\pyi-grab_version.exe</code></p>
+<p>a. 直接使用 <code>pyi-grab_version.exe</code> 获取某个 <code>exe</code> 程序的版本信息</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ D:\Python\Python36\Scripts\pyi-grab_version.exe D:\Git\git-bash.exe</span><br><span class="line"><span class="comment"># Version info written to: file_version_info.txt</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://p925vil75.bkt.gdipper.com/package-and-release-exe-program-with-PyInstaller_01.webp" alt="哎！图片又加载失败了呢!"></p>
+<p>b. 模仿文件中原有的内容进行适当的修改即可</p>
+<h6 id="打包发布程序："><a href="#打包发布程序：" class="headerlink" title="打包发布程序："></a>打包发布程序：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyinstaller -F -i C:\Users\valen\Desktop\favicon.ico --version-file=C:\Users\valen\Desktop\file_version_info.txt -n vpn C:\Users\valen\Desktop\vpn_script.py</span><br></pre></td></tr></table></figure>
+
+<p><font color="red">注意：打包含多进程的文件时，请在主窗口文件中加入以下代码：</font></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multiprocessing.freeze_support()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>文末照旧，贴上 <code>PyInstaller</code> 官方文档链接：<a target="_blank" rel="noopener" href="https://pyinstaller.readthedocs.io/en/latest/">https://pyinstaller.readthedocs.io/en/latest/</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2015-10-22T00:00:00+08:00"
-              content="2015-10-22">
-          10-22
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div>最後，打赏一杯咖啡 ?</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Tromixfuc 微信支付">
+        <p>微信支付</p>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/Rules/16f8815d.html" itemprop="url">
-            <span itemprop="name">Git 的常用命令</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Tromixfuc
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://cdd233.github.io/Python/53934d9f.html" title="利用 PyInstaller 打包发布 exe 程序">https://cdd233.github.io/Python/53934d9f.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/PyInstaller/" rel="tag"># PyInstaller</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Python/8cd17fc.html" rel="prev" title="「Scrapy」爬虫过程中避免被禁的几个小方法">
+      <i class="fa fa-chevron-left"></i> 「Scrapy」爬虫过程中避免被禁的几个小方法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDgyMi83Mzc0"></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -301,6 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85%E5%87%86%E5%A4%87"><span class="nav-text">一、安装准备</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#0x01-%E5%AE%89%E8%A3%85-pywin32"><span class="nav-text">0x01. 安装 pywin32</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#0x02-%E5%AE%89%E8%A3%85-PyInstaller"><span class="nav-text">0x02. 安装 PyInstaller</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E3%80%81PyInstaller-%E9%83%A8%E5%88%86%E5%8F%82%E6%95%B0"><span class="nav-text">二、PyInstaller 部分参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%89%93%E5%8C%85%E5%B9%B6%E5%8F%91%E5%B8%83%E7%A8%8B%E5%BA%8F"><span class="nav-text">三、打包并发布程序</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="nav-text">制作程序的版本信息：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83%E7%A8%8B%E5%BA%8F%EF%BC%9A"><span class="nav-text">打包发布程序：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -562,11 +692,26 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://cdd233.github.io/tags/Git/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://cdd233.github.io/Python/53934d9f.html',]
       });
       });
   </script>
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 </body>
 </html>

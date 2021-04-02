@@ -22,25 +22,26 @@
     var CONFIG = {"hostname":"cdd233.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="——へ Too Handsome To Annoyance .">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cdd233">
-<meta property="og:url" content="https://cdd233.github.io/page/2/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Git 的常用命令">
+<meta property="og:url" content="https://cdd233.github.io/Rules/16f8815d.html">
 <meta property="og:site_name" content="cdd233">
-<meta property="og:description" content="——へ Too Handsome To Annoyance .">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2015-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-02T02:02:25.990Z">
 <meta property="article:author" content="Tromixfuc">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://cdd233.github.io/page/2/">
+<link rel="canonical" href="https://cdd233.github.io/Rules/16f8815d.html">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -58,7 +59,7 @@
         }
     })();
 </script>
-  <title>cdd233</title>
+  <title>Git 的常用命令 | cdd233</title>
   
 
 
@@ -204,9 +205,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -222,10 +224,9 @@
       <meta itemprop="name" content="cdd233">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Rules/16f8815d.html" class="post-title-link" itemprop="url">Git 的常用命令</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Git 的常用命令
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -261,6 +262,7 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
+            <div class="post-description"><!-- more --></div>
 
         </div>
       </header>
@@ -271,39 +273,182 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><!-- more --></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Rules/16f8815d.html">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;zhazhahui&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;zhazhahui@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>配置好用户名和邮箱后，会在当前用户主目录下建立 <code>.gitconfig</code> 文件，<br>该配置文件即 <code>git</code> 全局配置的文件，一般配置方法为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global &lt;配置名称&gt; &lt;配置的值&gt;</span><br></pre></td></tr></table></figure>
+<p>假如想在某个项目里设置某个值与全局设置有区别，可以把 <code>--global</code> 去掉，<br>会在当前项目目录下创建 <code>.git/config</code> 来对当前项目配置单独生效</p>
+</blockquote>
+<h5 id="创建SSK密钥"><a href="#创建SSK密钥" class="headerlink" title="创建SSK密钥"></a>创建SSK密钥</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;zhazhahui@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建成功后，用户主目录会生成 <code>.ssh</code> ，含 <code>id_rsa</code> 、<code>id_rsa.pub</code> 两个文件，即 <code>SSH Key</code> 的密钥对<br><code>id_rsa</code> (私钥)不能泄露出去，<code>id_rsa.pub</code> (公钥)可以放心告诉任何人</p>
+</blockquote>
+<h5 id="公钥贴到-Github"><a href="#公钥贴到-Github" class="headerlink" title="公钥贴到 Github"></a>公钥贴到 <a target="_blank" rel="noopener" href="https://github.com/" title="点击跳转至GIthub官网..">Github</a></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat /home/&lt;user&gt;/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tip：　文件的路径根据自己的实际路径进行更改</p>
+</blockquote>
+<hr>
+<h2 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h2><h3 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h3><hr>
+<h5 id="查看所有的远程主机，使用-v-可以查看远程主机的网址"><a href="#查看所有的远程主机，使用-v-可以查看远程主机的网址" class="headerlink" title="查看所有的远程主机，使用 -v 可以查看远程主机的网址"></a>查看所有的远程主机，使用 <code>-v</code> 可以查看远程主机的网址</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+
+<h5 id="关联远程主机，并设主机名为-origin"><a href="#关联远程主机，并设主机名为-origin" class="headerlink" title="关联远程主机，并设主机名为 origin"></a>关联远程主机，并设主机名为 <code>origin</code></h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https://github.com/liangzaiming/example.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除主机名为-origin-的远程主机"><a href="#删除主机名为-origin-的远程主机" class="headerlink" title="删除主机名为 origin 的远程主机"></a>删除主机名为 <code>origin</code> 的远程主机</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote remove origin</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><hr>
+<h5 id="查看当前所在分支的情况"><a href="#查看当前所在分支的情况" class="headerlink" title="查看当前所在分支的情况"></a>查看当前所在分支的情况</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建分支-a"><a href="#创建分支-a" class="headerlink" title="创建分支 a"></a>创建分支 a</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch a</span><br></pre></td></tr></table></figure>
+
+<h5 id="切换到分支-a"><a href="#切换到分支-a" class="headerlink" title="切换到分支 a"></a>切换到分支 a</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout a</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建并切换到分支-a"><a href="#创建并切换到分支-a" class="headerlink" title="创建并切换到分支 a"></a>创建并切换到分支 a</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b a</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除分支-a-，若-a-分支的内容没合并到其他分支，则需要使用-D-强制删除"><a href="#删除分支-a-，若-a-分支的内容没合并到其他分支，则需要使用-D-强制删除" class="headerlink" title="删除分支 a ，若 a 分支的内容没合并到其他分支，则需要使用 -D 强制删除"></a>删除分支 a ，若 a 分支的内容没合并到其他分支，则需要使用 <code>-D</code> 强制删除</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d a</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><hr>
+<h5 id="合并分支-a-的内容到分支-master-上（必须把所在分支切换到-master-上）"><a href="#合并分支-a-的内容到分支-master-上（必须把所在分支切换到-master-上）" class="headerlink" title="合并分支 a 的内容到分支 master 上（必须把所在分支切换到 master 上）"></a>合并分支 a 的内容到分支 <code>master</code> 上（必须把所在分支切换到 <code>master</code> 上）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge a</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><hr>
+<h5 id="从远程库克隆-repository-到当前文件夹"><a href="#从远程库克隆-repository-到当前文件夹" class="headerlink" title="从远程库克隆 repository 到当前文件夹"></a>从远程库克隆 <code>repository</code> 到当前文件夹</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/liangzaiming/example.git</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="status"><a href="#status" class="headerlink" title="status"></a>status</h3><hr>
+<h5 id="显示工作树状态"><a href="#显示工作树状态" class="headerlink" title="显示工作树状态"></a>显示工作树状态</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>0x00</p>
+<blockquote>
+<p>添加文件并更新推送到远程 <code>master</code> 分支</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add &lt;fileName&gt;</span><br><span class="line">$ git commit -m <span class="string">&quot;Here write the changes of explain&quot;</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>0x01</p>
+<blockquote>
+<p>删除文件并更新推送到远程 <code>master</code> 分支</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm &lt;fileName&gt;</span><br><span class="line">$ git commit -m <span class="string">&quot;Here write the changes of explain&quot;</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>0x02</p>
+<blockquote>
+<p>从远程 <code>master</code> 分支下载更新的内容到本地（多人协作时 <code>push</code> 先 <code>pull</code> ，不容易发生冲突）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>Tips:   By the way, if u want to know even more operations for the git.<br>plese click this net link：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1PT6oJIsxkRJjnvIHdeOzlg">learn-github-from-zero.pdf</a>　　password： <del>6hbd</del></p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Time</th>
+<th>Remark</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create</td>
+<td>2015.10.22</td>
+<td>创建并记录部分语法</td>
+</tr>
+<tr>
+<td>update</td>
+<td>2016.08.11</td>
+<td>重构文章的内容和排版,并增加部分语法</td>
+</tr>
+<tr>
+<td>update</td>
+<td>2017.04.11</td>
+<td>添加部分常用的语法</td>
+</tr>
+</tbody></table>
+
     </div>
 
     
     
     
+        <div class="reward-container">
+  <div>最後，打赏一杯咖啡 ?</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Tromixfuc 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Tromixfuc
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://cdd233.github.io/Rules/16f8815d.html" title="Git 的常用命令">https://cdd233.github.io/Rules/16f8815d.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/Linux/2a8a344e.html" rel="next" title="Archlinux + Window10 双系统安装教程">
+      Archlinux + Window10 双系统安装教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
 
           </div>
           
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDgyMi83Mzc0"></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -350,6 +495,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-text">初始化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1"><span class="nav-text">配置用户名和邮箱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BASSK%E5%AF%86%E9%92%A5"><span class="nav-text">创建SSK密钥</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E8%B4%B4%E5%88%B0-Github"><span class="nav-text">公钥贴到 Github</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">其他常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#remote"><span class="nav-text">remote</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%EF%BC%8C%E4%BD%BF%E7%94%A8-v-%E5%8F%AF%E4%BB%A5%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%E7%9A%84%E7%BD%91%E5%9D%80"><span class="nav-text">查看所有的远程主机，使用 -v 可以查看远程主机的网址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA%EF%BC%8C%E5%B9%B6%E8%AE%BE%E4%B8%BB%E6%9C%BA%E5%90%8D%E4%B8%BA-origin"><span class="nav-text">关联远程主机，并设主机名为 origin</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%BB%E6%9C%BA%E5%90%8D%E4%B8%BA-origin-%E7%9A%84%E8%BF%9C%E7%A8%8B%E4%B8%BB%E6%9C%BA"><span class="nav-text">删除主机名为 origin 的远程主机</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#branch"><span class="nav-text">branch</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%89%80%E5%9C%A8%E5%88%86%E6%94%AF%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">查看当前所在分支的情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF-a"><span class="nav-text">创建分支 a</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E5%88%86%E6%94%AF-a"><span class="nav-text">切换到分支 a</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E5%88%86%E6%94%AF-a"><span class="nav-text">创建并切换到分支 a</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF-a-%EF%BC%8C%E8%8B%A5-a-%E5%88%86%E6%94%AF%E7%9A%84%E5%86%85%E5%AE%B9%E6%B2%A1%E5%90%88%E5%B9%B6%E5%88%B0%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF%EF%BC%8C%E5%88%99%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8-D-%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4"><span class="nav-text">删除分支 a ，若 a 分支的内容没合并到其他分支，则需要使用 -D 强制删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#merge"><span class="nav-text">merge</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF-a-%E7%9A%84%E5%86%85%E5%AE%B9%E5%88%B0%E5%88%86%E6%94%AF-master-%E4%B8%8A%EF%BC%88%E5%BF%85%E9%A1%BB%E6%8A%8A%E6%89%80%E5%9C%A8%E5%88%86%E6%94%AF%E5%88%87%E6%8D%A2%E5%88%B0-master-%E4%B8%8A%EF%BC%89"><span class="nav-text">合并分支 a 的内容到分支 master 上（必须把所在分支切换到 master 上）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clone"><span class="nav-text">clone</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%85%8B%E9%9A%86-repository-%E5%88%B0%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">从远程库克隆 repository 到当前文件夹</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#status"><span class="nav-text">status</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%B7%A5%E4%BD%9C%E6%A0%91%E7%8A%B6%E6%80%81"><span class="nav-text">显示工作树状态</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -611,11 +757,26 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://cdd233.github.io/page/2/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://cdd233.github.io/Rules/16f8815d.html',]
       });
       });
   </script>
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 </body>
 </html>

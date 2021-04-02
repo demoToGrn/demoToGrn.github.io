@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>「Private」About My Dream</title>
-    <url>/Porse/about-my-dream.html</url>
+    <url>/Porse/960f91b8.html</url>
     <content><![CDATA[<h2 id="Dream-List"><a href="#Dream-List" class="headerlink" title="Dream List"></a>Dream List</h2><blockquote>
 <p>&#9745;　看一场演唱会<br>&#9745;　省外旅行一次（非跟团）<br>&#9744;　国外旅行一次（非跟团）<br>&#9744;　玩一次蹦极<br>&#9744;　与心爱的人坐一次摩天轮<br>&#9745;　学一门自己喜欢的编程语言（python）<br>&#9744;　能处于一个融洽的开发团队</p>
 </blockquote>
@@ -15,8 +15,447 @@
       </tags>
   </entry>
   <entry>
+    <title>Git 的常用命令</title>
+    <url>/Rules/16f8815d.html</url>
+    <content><![CDATA[<h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;zhazhahui&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;zhazhahui@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>配置好用户名和邮箱后，会在当前用户主目录下建立 <code>.gitconfig</code> 文件，<br>该配置文件即 <code>git</code> 全局配置的文件，一般配置方法为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global &lt;配置名称&gt; &lt;配置的值&gt;</span><br></pre></td></tr></table></figure>
+<p>假如想在某个项目里设置某个值与全局设置有区别，可以把 <code>--global</code> 去掉，<br>会在当前项目目录下创建 <code>.git/config</code> 来对当前项目配置单独生效</p>
+</blockquote>
+<h5 id="创建SSK密钥"><a href="#创建SSK密钥" class="headerlink" title="创建SSK密钥"></a>创建SSK密钥</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;zhazhahui@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>创建成功后，用户主目录会生成 <code>.ssh</code> ，含 <code>id_rsa</code> 、<code>id_rsa.pub</code> 两个文件，即 <code>SSH Key</code> 的密钥对<br><code>id_rsa</code> (私钥)不能泄露出去，<code>id_rsa.pub</code> (公钥)可以放心告诉任何人</p>
+</blockquote>
+<h5 id="公钥贴到-Github"><a href="#公钥贴到-Github" class="headerlink" title="公钥贴到 Github"></a>公钥贴到 <a href="https://github.com/" title="点击跳转至GIthub官网..">Github</a></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /home/&lt;user&gt;/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>tip：　文件的路径根据自己的实际路径进行更改</p>
+</blockquote>
+<hr>
+<h2 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h2><h3 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h3><hr>
+<h5 id="查看所有的远程主机，使用-v-可以查看远程主机的网址"><a href="#查看所有的远程主机，使用-v-可以查看远程主机的网址" class="headerlink" title="查看所有的远程主机，使用 -v 可以查看远程主机的网址"></a>查看所有的远程主机，使用 <code>-v</code> 可以查看远程主机的网址</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
+
+<h5 id="关联远程主机，并设主机名为-origin"><a href="#关联远程主机，并设主机名为-origin" class="headerlink" title="关联远程主机，并设主机名为 origin"></a>关联远程主机，并设主机名为 <code>origin</code></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote add origin https://github.com/liangzaiming/example.git</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除主机名为-origin-的远程主机"><a href="#删除主机名为-origin-的远程主机" class="headerlink" title="删除主机名为 origin 的远程主机"></a>删除主机名为 <code>origin</code> 的远程主机</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote remove origin</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><hr>
+<h5 id="查看当前所在分支的情况"><a href="#查看当前所在分支的情况" class="headerlink" title="查看当前所在分支的情况"></a>查看当前所在分支的情况</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建分支-a"><a href="#创建分支-a" class="headerlink" title="创建分支 a"></a>创建分支 a</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch a</span><br></pre></td></tr></table></figure>
+
+<h5 id="切换到分支-a"><a href="#切换到分支-a" class="headerlink" title="切换到分支 a"></a>切换到分支 a</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout a</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建并切换到分支-a"><a href="#创建并切换到分支-a" class="headerlink" title="创建并切换到分支 a"></a>创建并切换到分支 a</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout -b a</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除分支-a-，若-a-分支的内容没合并到其他分支，则需要使用-D-强制删除"><a href="#删除分支-a-，若-a-分支的内容没合并到其他分支，则需要使用-D-强制删除" class="headerlink" title="删除分支 a ，若 a 分支的内容没合并到其他分支，则需要使用 -D 强制删除"></a>删除分支 a ，若 a 分支的内容没合并到其他分支，则需要使用 <code>-D</code> 强制删除</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -d a</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><hr>
+<h5 id="合并分支-a-的内容到分支-master-上（必须把所在分支切换到-master-上）"><a href="#合并分支-a-的内容到分支-master-上（必须把所在分支切换到-master-上）" class="headerlink" title="合并分支 a 的内容到分支 master 上（必须把所在分支切换到 master 上）"></a>合并分支 a 的内容到分支 <code>master</code> 上（必须把所在分支切换到 <code>master</code> 上）</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git merge a</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><hr>
+<h5 id="从远程库克隆-repository-到当前文件夹"><a href="#从远程库克隆-repository-到当前文件夹" class="headerlink" title="从远程库克隆 repository 到当前文件夹"></a>从远程库克隆 <code>repository</code> 到当前文件夹</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/liangzaiming/example.git</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="status"><a href="#status" class="headerlink" title="status"></a>status</h3><hr>
+<h5 id="显示工作树状态"><a href="#显示工作树状态" class="headerlink" title="显示工作树状态"></a>显示工作树状态</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>0x00</p>
+<blockquote>
+<p>添加文件并更新推送到远程 <code>master</code> 分支</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add &lt;fileName&gt;</span><br><span class="line">$ git commit -m <span class="string">&quot;Here write the changes of explain&quot;</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>0x01</p>
+<blockquote>
+<p>删除文件并更新推送到远程 <code>master</code> 分支</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm &lt;fileName&gt;</span><br><span class="line">$ git commit -m <span class="string">&quot;Here write the changes of explain&quot;</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>0x02</p>
+<blockquote>
+<p>从远程 <code>master</code> 分支下载更新的内容到本地（多人协作时 <code>push</code> 先 <code>pull</code> ，不容易发生冲突）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>Tips:   By the way, if u want to know even more operations for the git.<br>plese click this net link：<a href="https://pan.baidu.com/s/1PT6oJIsxkRJjnvIHdeOzlg">learn-github-from-zero.pdf</a>　　password： <del>6hbd</del></p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Time</th>
+<th>Remark</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create</td>
+<td>2015.10.22</td>
+<td>创建并记录部分语法</td>
+</tr>
+<tr>
+<td>update</td>
+<td>2016.08.11</td>
+<td>重构文章的内容和排版,并增加部分语法</td>
+</tr>
+<tr>
+<td>update</td>
+<td>2017.04.11</td>
+<td>添加部分常用的语法</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Rules</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 搭建个人静态博客到 GitPages</title>
+    <url>/Technique/2d7e24e8.html</url>
+    <content><![CDATA[<blockquote>
+<p>好久没碰这个博客了，本来单纯想升级一下的，都已经备份好了，结果不小心 <code>rm -rf</code>，删完备份删源文件，傻傻分不清楚，简直完美，两天没睡觉真的会出事！！不过window下还留了个旧旧的源文件，提个大概配置信息差不多了，趁着事儿不多，重装一遍，正好也可以写个博客记录一下！</p>
+</blockquote>
+<h3 id="一、安装准备"><a href="#一、安装准备" class="headerlink" title="一、安装准备"></a>一、安装准备</h3><h5 id="1x01-安装-npm"><a href="#1x01-安装-npm" class="headerlink" title="1x01.  安装  npm"></a>1x01.  安装  <code>npm</code></h5><p>​    不晓得是不是得装 <code>Node.js</code> ，我就不瞎折腾了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S npm	<span class="comment"># npm install cnpm -g --registry=https://registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="1x02-安装-hexo"><a href="#1x02-安装-hexo" class="headerlink" title="1x02.  安装 hexo"></a>1x02.  安装 <code>hexo</code></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install -g hexo-cli		<span class="comment"># sudo cnpm install -g hexo-cli</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="二、建立网站"><a href="#二、建立网站" class="headerlink" title="二、建立网站"></a>二、建立网站</h3><h5 id="2x01-初始化-hexo"><a href="#2x01-初始化-hexo" class="headerlink" title="2x01.  初始化 hexo"></a>2x01.  初始化 hexo</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo init ./Github/demoToGrn.github.io	<span class="comment"># 根据自己的存放位置更改，`&lt;user&gt;.github.io` 是固定的</span></span><br><span class="line">$ <span class="built_in">cd</span> ./Github/demoToGrn.github.io/</span><br><span class="line">$ sudo npm install</span><br></pre></td></tr></table></figure>
+
+<p>生成的树状目录如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml     # 网站的配置信息</span><br><span class="line">├── package.json    # 应用程序的信息</span><br><span class="line">├── scaffolds       # 模版文件夹，新建文章时，Hexo 会根据 scaffold 来建立文件</span><br><span class="line">├── source          # 存放用户的资源文件</span><br><span class="line">|   ├── _drafts     # 除 _posts 外， _ 开头的文件&#x2F;文件夹和隐藏的文件都会被忽略</span><br><span class="line">|   └── _posts	    # 用户写的文章都会存放在这</span><br><span class="line">└── themes          # 存放主题，Hexo 会根据主题来生成静态页面</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="2x02-测试网站"><a href="#2x02-测试网站" class="headerlink" title="2x02. 测试网站"></a>2x02. 测试网站</h5><p>在本地启动一个服务，不指定 <code>port</code> 会默认启动 <code>4000</code> 端口，<code>s</code> 为 <code>server</code> 的简写<br>能启动那就可以正常使用了，接下来就是配置，也就是美妆…</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo s -p 5000		<span class="comment"># http://localhost:5000/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、个性化设置"><a href="#三、个性化设置" class="headerlink" title="三、个性化设置"></a>三、个性化设置</h2><h5 id="3x01-Next主题配置"><a href="#3x01-Next主题配置" class="headerlink" title="3x01. Next主题配置"></a>3x01. Next主题配置</h5><h6 id="a-下载Next主题"><a href="#a-下载Next主题" class="headerlink" title="a. 下载Next主题"></a>a. 下载Next主题</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes</span><br><span class="line">$ sudo git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next.git ./next</span><br></pre></td></tr></table></figure>
+
+<h6 id="b-在网站根目录下的-config-yml-中更换主题为Next"><a href="#b-在网站根目录下的-config-yml-中更换主题为Next" class="headerlink" title="b. 在网站根目录下的 _config.yml 中更换主题为Next"></a>b. 在<code>网站根目录</code>下的 <code>_config.yml</code> 中更换主题为Next</h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">themes: next</span><br></pre></td></tr></table></figure>
+
+<h6 id="c-设置文章默认不展开全部，只抽取120个字做摘要，主题配置文件"><a href="#c-设置文章默认不展开全部，只抽取120个字做摘要，主题配置文件" class="headerlink" title="c. 设置文章默认不展开全部，只抽取120个字做摘要，主题配置文件"></a>c. 设置文章默认不展开全部，只抽取120个字做摘要，<code>主题配置文件</code></h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: <span class="number">120</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="d-右下角置顶图标显示滑动条百分比进度，主题配置文件"><a href="#d-右下角置顶图标显示滑动条百分比进度，主题配置文件" class="headerlink" title="d. 右下角置顶图标显示滑动条百分比进度，主题配置文件"></a>d. 右下角置顶图标显示滑动条百分比进度，<code>主题配置文件</code></h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">scrollpercent: true</span><br></pre></td></tr></table></figure>
+
+<p>ps： 其他零零碎碎的感觉写完也得写大半天，官网写得也很详细，下面只记录几个常用的就好…</p>
+<h5 id="3x02-一些还不错的配置"><a href="#3x02-一些还不错的配置" class="headerlink" title="3x02. 一些还不错的配置"></a>3x02. 一些还不错的配置</h5><blockquote>
+<p>tips：在大天朝如果感觉 <code>npm</code> 访问速度慢的话，可以再安装淘宝家的 <code>cnpm</code>，替换 <code>npm</code> 使用</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<h6 id="a-Local-Search"><a href="#a-Local-Search" class="headerlink" title="a. Local Search"></a>a. Local Search</h6><p>需要在<code>网站根目录</code>安装，然后在<code>主题配置文件</code>中配置，即Next主题中的配置文件 <code>_config.yml</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install hexo-generator-searchdb --save		<span class="comment"># sudo cnpm install hexo-generator-searchdb --save</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="b-来必力评论系统"><a href="#b-来必力评论系统" class="headerlink" title="b. 来必力评论系统"></a>b. 来必力评论系统</h6><p>直接登录 <a href="http://www.laibili.com.cn/">来必力官网</a>，注册帐号开个页面，然后把 <code>uid</code> 拿回来丢到 <code>主题配置文件</code>中即可 </p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">livere_uid: <span class="number">7</span>f5391632a2331b1aa5508ddxxxxxxxxx</span><br></pre></td></tr></table></figure>
+
+<h6 id="c-文章设置密码访问"><a href="#c-文章设置密码访问" class="headerlink" title="c. 文章设置密码访问"></a>c. 文章设置密码访问</h6><p>​        把 <code>&lt;script&gt;</code> 中的代码复制到 <code>themes/next/layout/_partials/head.swig</code> 中，然后在文章头添加 <code>password：xxx</code> 即可给该文章设置访问密码，不添加或为空时表示不加密；代码中的网址了解一下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prompt(<span class="string">&#x27;请输入文章密码&#x27;</span>) !== <span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">                alert(<span class="string">&#x27;密码错误！&#x27;</span>);</span><br><span class="line">                <span class="keyword">if</span>(history.length==<span class="number">1</span>)</span><br><span class="line">                    location.replace(<span class="string">&quot;http://saltedfish.org&quot;</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="d-给鼠标添加爱心点击特效"><a href="#d-给鼠标添加爱心点击特效" class="headerlink" title="d. 给鼠标添加爱心点击特效"></a>d. 给鼠标添加爱心点击特效</h6><p>​        添加 <a href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js">love.js</a> 文件到 <code>/themes/next/source/js/</code> ，在 <code>\themes\next\layout\_layout.swig</code> 末尾处添加代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/js/love.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="e-文章添加阴影特效"><a href="#e-文章添加阴影特效" class="headerlink" title="e. 文章添加阴影特效"></a>e. 文章添加阴影特效</h6><p>​        把下面代码添加到 <code>themes/next/source/css/_custom/custom.styl</code> 中即可</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.post-block</span> &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">    -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">    -moz-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="f-文末标签-换成图片"><a href="#f-文末标签-换成图片" class="headerlink" title="f.  文末标签 # 换成图片  "></a>f.  文末标签 <code>#</code> 换成图片  <i class="fa fa-tag"></i></h6><p>​        修改模板 <code>/themes/next/layout/_macro/post.swig</code> ，搜索 <code>rel=&quot;tag&quot;#</code> ，<br>​        将 <code>#</code> 换成 <code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code> 即可</p>
+<h6 id="g-右侧栏头像变圆可旋转"><a href="#g-右侧栏头像变圆可旋转" class="headerlink" title="g. 右侧栏头像变圆可旋转"></a>g. 右侧栏头像变圆可旋转</h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  <span class="comment">/* 头像圆形 */</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#333</span>sf;</span><br><span class="line">  <span class="comment">/* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 </span></span><br><span class="line"><span class="comment">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  -webkit-<span class="attribute">transition</span>: -webkit-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  -moz-<span class="attribute">transition</span>: -moz-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转 </span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  -webkit-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  -moz-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Z 轴旋转动画 */</span></span><br><span class="line"><span class="keyword">@-webkit-keyframes</span> play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@-moz-keyframes</span> play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    -moz-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    -moz-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframes</span> play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="h-恶搞网站-Title"><a href="#h-恶搞网站-Title" class="headerlink" title="h. 恶搞网站 Title"></a>h. 恶搞网站 Title</h6><p>​        创建文件 <code>title-cheat.js</code>，添加以下代码，然后移动到 <code>/themes/next/source/js/</code> 下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!--崩溃欺骗--&gt;</span><br><span class="line"><span class="keyword">var</span> OriginTitile = <span class="built_in">document</span>.title;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.hidden) &#123;</span><br><span class="line">        $(<span class="string">&#x27;[rel=&quot;icon&quot;]&#x27;</span>).attr(<span class="string">&#x27;href&#x27;</span>, <span class="string">&quot;/img/TEP.ico&quot;</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">&#x27;╭(°A°`)╮ 页面崩溃啦 ~ &#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="string">&#x27;[rel=&quot;icon&quot;]&#x27;</span>).attr(<span class="string">&#x27;href&#x27;</span>, <span class="string">&quot;/favicon.ico&quot;</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">&#x27;(ฅ&gt;ω&lt;*ฅ) 嘿嘿又好了 ~ &#x27;</span> + OriginTitile;</span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.title = OriginTitile;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>/themes/next/layout/_layout.swig</code> 中引入以下代码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!--崩溃欺骗--&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/js/title-cheat.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="i-添加在线联系功能（类似网页客服）"><a href="#i-添加在线联系功能（类似网页客服）" class="headerlink" title="i. 添加在线联系功能（类似网页客服）"></a>i. 添加在线联系功能（类似网页客服）</h6><p>ix01. 打开 <code>/themes/next/layout/_partials/head.swig</code> ，随便找个位置粘贴下面的代码</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.daovoice %&#125;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">i,s,o,g,r,a,m</span>)</span>&#123;i[<span class="string">&quot;DaoVoiceObject&quot;</span>]=r;i[r]=i[r]||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;(i[r].q=i[r].q||[]).push(<span class="built_in">arguments</span>)&#125;,i[r].l=<span class="number">1</span>*<span class="keyword">new</span> <span class="built_in">Date</span>();a=s.createElement(o),m=s.getElementsByTagName(o)[<span class="number">0</span>];a.async=<span class="number">1</span>;a.src=g;a.charset=<span class="string">&quot;utf-8&quot;</span>;m.parentNode.insertBefore(a,m)&#125;)(<span class="built_in">window</span>,<span class="built_in">document</span>,<span class="string">&quot;script&quot;</span>,(<span class="string">&#x27;https:&#x27;</span> == <span class="built_in">document</span>.location.protocol ? <span class="string">&#x27;https:&#x27;</span> : <span class="string">&#x27;http:&#x27;</span>) + <span class="string">&quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;</span>,<span class="string">&quot;daovoice&quot;</span>)</span><br><span class="line">  daovoice(<span class="string">&#x27;init&#x27;</span>, &#123;</span><br><span class="line">      app_id: <span class="string">&quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot;</span></span><br><span class="line">    &#125;);</span><br><span class="line">  daovoice(<span class="string">&#x27;update&#x27;</span>);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ix02. 点击 <a href="http://dashboard.daovoice.io/get-started?invite_code=591a4b70">DaoVoice官网</a> 进行注册，提取网站给的 <code>app_id</code> ，打开<code>主题配置文件</code>，加入下面代码，把 <code>app_id</code> 替换进去</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"># Online contact</span><br><span class="line">daovoice: true</span><br><span class="line">daovoice_app_id: &#123;your app_id&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果没什么错误，网站右下角会出现一个聊天图标，但是这时候我们会发现，它把我们网页中部分按钮给遮挡住了！其实在官网设置一下聊天窗口样式就好了，具体路径：<code>应用设置 &gt; 聊天设置</code>，找不到记得往下拉一点</p>
+</blockquote>
+<h2 id="四、网站性能优化"><a href="#四、网站性能优化" class="headerlink" title="四、网站性能优化"></a>四、网站性能优化</h2><h6 id="ax01-压缩渲染完的博文"><a href="#ax01-压缩渲染完的博文" class="headerlink" title="ax01. 压缩渲染完的博文"></a>ax01. 压缩渲染完的博文</h6><blockquote>
+<p> <code>hexo generator</code> 生成的页面中有很多空行和无用的空格，为了减少客户的访问流量，压缩 <code>html</code>、<code>css</code> 和 <code>js</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install gulp -g		<span class="comment"># sudo cnpm install gulp -g</span></span><br><span class="line">$ sudo npm install gulp-minify-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp --save</span><br></pre></td></tr></table></figure>
+
+
+<p>创建 <code>gulpfile.js</code> 文件，把下面的代码复制进去，然后移动到 <code>package.json</code> 同级目录下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlmin&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩 public 目录 css</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./public/**/*.css&#x27;</span>)</span><br><span class="line">        .pipe(minifycss())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 压缩 public 目录 html</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">    .pipe(htmlclean())</span><br><span class="line">    .pipe(htmlmin(&#123;</span><br><span class="line">         removeComments: <span class="literal">true</span>,</span><br><span class="line">         minifyJS: <span class="literal">true</span>,</span><br><span class="line">         minifyCSS: <span class="literal">true</span>,</span><br><span class="line">         minifyURLs: <span class="literal">true</span>,</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 压缩 public/js 目录 js</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-js&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./public/**/*.js&#x27;</span>)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 执行 gulp 命令时执行的任务</span></span><br><span class="line">gulp.task(<span class="string">&#x27;default&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;minify-css&#x27;</span>,<span class="string">&#x27;minify-js&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h6 id="ax02-简化测试与部署等操作（纯个人习惯）"><a href="#ax02-简化测试与部署等操作（纯个人习惯）" class="headerlink" title="ax02. 简化测试与部署等操作（纯个人习惯）"></a>ax02. 简化测试与部署等操作（纯个人习惯）</h6><p>在 <code>package.json</code> 中添加多个合并的操作命令</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;d&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; gulp &amp;&amp; hexo d&quot;,</span><br><span class="line">    &quot;local&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>远程部署： <code>sudo npm run d</code> </p>
+<p>本地调试： <code>sudo npm run local</code></p>
+<p>ps：使用 <code>deploy</code> 的时候，远程部署得先配置好，下面一节正好讲到</p>
+</blockquote>
+<hr>
+<h2 id="五、部署到-Github"><a href="#五、部署到-Github" class="headerlink" title="五、部署到 Github"></a>五、部署到 Github</h2><h6 id="a-在-Github-上创建一个-repository-，命名为-lt-uesr-gt-github-io"><a href="#a-在-Github-上创建一个-repository-，命名为-lt-uesr-gt-github-io" class="headerlink" title="a. 在 Github 上创建一个 repository ，命名为 &lt;uesr&gt;.github.io"></a>a. 在 <a href="https://github.com/">Github</a> 上创建一个 <code>repository</code> ，命名为 <code>&lt;uesr&gt;.github.io</code></h6><h6 id="b-为-Hexo-安装-git-插件，并-在站点配置文件中加入以下配置-，即网站根目录下的-config-yml"><a href="#b-为-Hexo-安装-git-插件，并-在站点配置文件中加入以下配置-，即网站根目录下的-config-yml" class="headerlink" title="b. 为 Hexo 安装 git 插件，并 在站点配置文件中加入以下配置 ，即网站根目录下的 _config.yml"></a>b. 为 Hexo 安装 git 插件，并 在<code>站点配置文件</code>中加入以下配置 ，即<code>网站根目录</code>下的 <code>_config.yml</code></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install hexo-deployer-git --save		<span class="comment"># sudo cnpm install hexo-deployer-git --save	</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/demoToGrn/demoToGrn.github.io.git	# 根据自己的改</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h6 id="c-生成静态文件并部署到-Github"><a href="#c-生成静态文件并部署到-Github" class="headerlink" title="c. 生成静态文件并部署到 Github"></a>c. 生成静态文件并部署到 Github</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo clean			<span class="comment"># 清除缓存</span></span><br><span class="line">$ sudo hexo g				<span class="comment"># 生成静态文件，可以部署之前 `sudo gulp` ，压缩渲染完的文件（步骤ax01）</span></span><br><span class="line">$ sudo hexo d				<span class="comment"># 部署到 Github</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="d-绑定域名"><a href="#d-绑定域名" class="headerlink" title="d. 绑定域名"></a>d. 绑定域名</h6><p>​        1. 不绑定默认会使用 <code>https://&lt;user&gt;.github.io</code>，在站点 <code>source</code> 文件中添加 <code>CNAME</code>文件，并在里面写入你的域名，例如：<code>saltedfish.org</code>；或者直接在 <a href="https://github.com/">Github</a> 的 <code>repository</code> 中添加该文件</p>
+<pre><code>    2. 在解析域名服务中添加一条 `CNAME` 记录，比如我的是在腾讯云解析的，添加一条 `CNAME` 记录，让它指向 `GitPages` 的默认域名
+</code></pre>
+<p>设置文章内链接内颜色样式：默认显示蓝色，鼠标放上去显示橙色</p>
+<p>选择<code>.post-body</code>是为了不影响标题，选择<code>p</code>是为了不影响首页 “阅读全文” 的显示样式。</p>
+<p>themes\next\source\css_common\components\post\post.styl</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">// 文章内链接文本样式</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">0.1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fc6423</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">0.1px</span> solid <span class="number">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更改底部信息,E:\Github\cdd233.github.io\themes\next\languages\zh-CN.yml中powered的中文信息</p>
+<p>E:\Github\cdd233.github.io\themes\next\layout_partials\footer.swig</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- if theme.footer.powered %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;powered-by&quot;&gt;</span><br><span class="line">    &#123;%- set next_site &#x3D; &#39;https:&#x2F;&#x2F;theme-next.org&#39; %&#125;</span><br><span class="line">    &#123;%- if theme.scheme !&#x3D;&#x3D; &#39;Gemini&#39; %&#125;</span><br><span class="line">      &#123;%- set next_site &#x3D; &#39;https:&#x2F;&#x2F;&#39; + theme.scheme | lower + &#39;.theme-next.org&#39; %&#125;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">    &#123;&#123;- __(&#39;footer.powered&#39;, next_url(&#39;https:&#x2F;&#x2F;hexo.io&#39;, &#39;Hexo&#39;, &#123;class: &#39;theme-link&#39;&#125;) + &#39; &amp; &#39; + next_url(next_site, &#39;NexT.&#39; + theme.scheme, &#123;class: &#39;theme-link&#39;&#125;)) &#125;&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>npm install hexo-abbrlink –save</p>
+<p>永久链接，会在文章头生成一个永久唯一abbrlink</p>
+<h2 id="六、贴上官网教程，其实官网的教程已经很详细了"><a href="#六、贴上官网教程，其实官网的教程已经很详细了" class="headerlink" title="六、贴上官网教程，其实官网的教程已经很详细了"></a>六、贴上官网教程，其实官网的教程已经很详细了</h2><ul>
+<li>Hexo官网： <a href="https://hexo.io/zh-cn/docs/index.html">https://hexo.io/zh-cn/docs/index.html</a></li>
+<li>Next官网：<a href="http://theme-next.iissnan.com/getting-started.html">http://theme-next.iissnan.com/getting-started.html</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Technique</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown 常用语法</title>
+    <url>/Rules/e317821c.html</url>
+    <content><![CDATA[<h2 id="横线"><a href="#横线" class="headerlink" title="横线"></a>横线</h2><blockquote>
+<p><code>=</code> 在文字下使用会使文字出现 <code>一级标题</code> 效果，而自身显示 <code>细横线</code>，空行下使用依然显示为<code>细横线</code><br><code>-</code> 在文字下使用会使文字出现 <code>二级标题</code> 效果，而自身显示 <code>细横线</code> ，空行下如果 <code>-</code> &gt; 3 则为 <code>粗横线</code><br> <code>*</code> 和 <code>_</code> 个数大于3，在文字下或者空行下使用均显示为 <code>粗横线</code></p>
+</blockquote>
+<hr>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>　　<code># 一级</code> 、<code>## 二级</code>，其他依次类推，为了美观也可以这样： <code># 一级 #</code> 、<code>## 二级 ##</code></p>
+<hr>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h4 id="普通文本"><a href="#普通文本" class="headerlink" title="普通文本"></a>普通文本</h4><p>　　这是一段直接输入的普通文本</p>
+<h4 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h4><pre><code> 在一行开头加入1个Tab或者4个空格
+</code></pre>
+<h4 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h4><pre><code> 语法一：在连续几行文本开头加入1个Tab或者4个空格
+ 语法二：使用一对各3个的反引号,该语法也可以实现代码高亮
+</code></pre>
+<h4 id="文字高亮"><a href="#文字高亮" class="headerlink" title="文字高亮"></a>文字高亮</h4><blockquote>
+<p>文字高亮功能可以使行内部文字高亮,使用一对 `反引号` 即可<br>也比较适合做一篇博文的 Tag 效果：<code>fuck</code> <code>the</code> <code>world</code></p>
+</blockquote>
+<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><blockquote>
+<p>a.　直接回车不能换行，可以在上一行文本后补两个空格，实现换行<br>b.　Markdown语法支持部分 html 标签，可使用 <code>&lt;br&gt;</code> 、<code>&lt;br/&gt;</code> 换行<br>c.　使用空行也可以实现换行，但上下文本间会多出一个空行</p>
+</blockquote>
+<h4 id="斜体、粗体、删除线"><a href="#斜体、粗体、删除线" class="headerlink" title="斜体、粗体、删除线"></a>斜体、粗体、删除线</h4><table>
+<thead>
+<tr>
+<th align="center"><strong>语法</strong></th>
+<th align="center"><strong>效果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>*斜体*</code> 、<code>_斜体_</code></td>
+<td align="center"><em>斜体</em></td>
+</tr>
+<tr>
+<td align="center"><code>**粗体**</code> 、<code>__粗体__</code></td>
+<td align="center"><strong>粗体</strong></td>
+</tr>
+<tr>
+<td align="center"><code>~~删除线~~</code></td>
+<td align="center"><del>删除线</del></td>
+</tr>
+<tr>
+<td align="center"><code>~~***斜粗删组合***~~</code></td>
+<td align="center"><del><em><strong>斜粗删组合</strong></em></del></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h4 id="文字链接"><a href="#文字链接" class="headerlink" title="文字链接"></a>文字链接</h4><blockquote>
+<p>法一： <code>[alt](url &quot;title&quot;)</code></p>
+<blockquote>
+<p>法　<code>[alt][xxx]</code><br>二　<code>[xxx]:url &quot;title&quot;</code></p>
+<blockquote>
+<ul>
+<li>alt　表示替换掉链接所显示的文本</li>
+<li>title　表示鼠标悬停在 alt 时显示的文本(可省略)</li>
+<li>url　点击进行跳转的超链接,可以是内链接也可以是外链接</li>
+<li>xxx　只充当一个标识符，通常第一句占位，第二句放句末便于管理</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="图片链接"><a href="#图片链接" class="headerlink" title="图片链接"></a>图片链接</h4><p>　　用法与文字链接一样，区别是前面多了一个 <code>!</code>，而且不能进行跳转</p>
+<blockquote>
+<p>基本格式： <code>![alt](url &quot;title&quot;)</code></p>
+<blockquote>
+<p>法　<code>![alt][xxx]</code><br>二　<code>[xxx]:url &quot;title&quot;</code></p>
+<blockquote>
+<ul>
+<li>alt　表示图片加载失败时的替换文本(可省略)</li>
+<li>title　表示鼠标悬停在图片时显示的文本(可省略)</li>
+<li>url　点击进行跳转的超链接,可以是内链接也可以是外链接</li>
+<li>xxx　只充当一个标识符，通常第一句占位，第二句放句末便于管理</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><blockquote>
+<p>　本文的目录就是用锚点进行捆绑的，和HTML的锚点 <code>#标记</code> 类似</p>
+</blockquote>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">语法</th>
+<th align="center">效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>[跳到复选框列表](#复选框列表)</code></td>
+<td align="center"><a href="#%E5%A4%8D%E9%80%89%E6%A1%86%E5%88%97%E8%A1%A8">跳到复选框列表</a></td>
+</tr>
+</tbody></table>
+</blockquote>
+<hr>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><blockquote>
+<ul>
+<li><code>* 嘿嘿</code></li>
+</ul>
+<ul>
+<li><code>- 呵呵</code></li>
+</ul>
+<ul>
+<li><code>* 哈哈</code></li>
+</ul>
+</blockquote>
+<h4 id="多级无序列表"><a href="#多级无序列表" class="headerlink" title="多级无序列表"></a>多级无序列表</h4><p>　最高级别顶格 <code>*</code>，级别往下依次加一个Tab或4个空格的距离</p>
+<blockquote>
+<ul>
+<li><code>* 级别最高</code><ul>
+<li><code>* 级别其次</code></li>
+<li><code>* 级别其次</code><ul>
+<li><code>* 级别最低</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><blockquote>
+<p>　就是在数字后面加一个点，再加一个空格。不过看起来起来可能不够明显</p>
+</blockquote>
+<h4 id="有序列表自动排序"><a href="#有序列表自动排序" class="headerlink" title="有序列表自动排序"></a>有序列表自动排序</h4><blockquote>
+<p>在第一行指定 <code>1.</code>，接下来的几行用星号 <code>* </code> ，或者继续用数字 <code>1.</code>，<br>它会自动显示成 <code>2.</code>、<code>3.</code>、<code>4.</code>，接着上一个数字往下自动添加序号</p>
+</blockquote>
+<h4 id="复选框列表"><a href="#复选框列表" class="headerlink" title="复选框列表"></a>复选框列表</h4><p>　　-　( hexo 好像无法渲染，github 倒是可以，这里用特殊字符来展示效果)</p>
+<blockquote>
+<p>语法：<code>- [x] 需求分析</code> 、<code>- [ ] 系统设计</code><br>&#9745; 需求分析<br>&#9745; 系统设计<br>&#9745; 详细设计<br>&#9744; 编码<br>&#9744; 测试<br>&#9744; 交付</p>
+</blockquote>
+<p>　　通常用于标注某个项目各项任务完成情况</p>
+<p>Tip：在 Github 的 <em><strong>issues</strong></em> 中使用该语法可以实时点击复选框来勾选或解除勾选,而无需修改 <em><strong>issues</strong></em> 原文</p>
+<hr>
+<h2 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h2><h4 id="块引用的多级结构"><a href="#块引用的多级结构" class="headerlink" title="块引用的多级结构"></a>块引用的多级结构</h4><p>　　其实本文为了美化，几乎所有举例的地方都有用到这个功能(与 <code>&gt;</code> 之间可以不空一格)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> 生物</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt; 动物</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; 人类</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;&gt; 小妹妹</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>生物</p>
+<blockquote>
+<p>动物</p>
+<blockquote>
+<p>人类</p>
+<blockquote>
+<p>小妹妹</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<hr>
+<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><blockquote>
+<p>``` java<br>public static oid main(String[] args){}<br>```</p>
+</blockquote>
+<p>​    在3个反引号后面加上编程语言的名称，另起一行开始写代码，最后一行再加上3个反引号</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> oid <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;&#125;	<span class="comment">//java</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> atgc, <span class="keyword">char</span> *argv[])</span>	<span class="comment">//c</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, markdown&quot;</span>	<span class="comment">#bash</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;myH1&quot;</span>).innerHTML=<span class="string">&quot;Welcome to my Homepage&quot;</span>;	<span class="comment">//javascript</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">string &amp;<span class="keyword">operator</span>+(<span class="keyword">const</span> string&amp; A, <span class="keyword">const</span> string&amp; B)	<span class="comment">//cpp</span></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格展示及语法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">语法1</th>
+<th align="center">语法2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">表头1|表头2</td>
+<td align="center">|表头1|表头2|</td>
+</tr>
+<tr>
+<td align="center">- - - - - |- - - - -</td>
+<td align="center">|- - - - -|- - - - -|</td>
+</tr>
+<tr>
+<td align="center">表格单元|表格单元</td>
+<td align="center">|表格单元|表格单元|</td>
+</tr>
+<tr>
+<td align="center">表格单元|表格单元</td>
+<td align="center">|表格单元|表格单元|</td>
+</tr>
+</tbody></table>
+<h4 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h4><blockquote>
+<p>中对齐,右对齐,左对齐：<code>:----:|----:|:----</code><br>左对齐,中对齐,右对齐：<code>|:----|:-----:|-----:|</code></p>
+</blockquote>
+<h4 id="表格嵌入其他语法"><a href="#表格嵌入其他语法" class="headerlink" title="表格嵌入其他语法"></a>表格嵌入其他语法</h4><p>　　表格还可以嵌入其他语法,如对文字的设置、表格嵌入图片、链接等其他内容，此处不作演示</p>
+<hr>
+<blockquote>
+<blockquote>
+<p>tips:<br>本文整理自 Github 上的大牛，并根据个人习惯进行修改处理<br><code>createTime</code>：2016.08.07　18:02:10</p>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Rules</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Archlinux + Window10 双系统安装教程</title>
-    <url>/Linux/archlinux+window10-dual-system-installation-tutorial.html</url>
+    <url>/Linux/2a8a344e.html</url>
     <content><![CDATA[<p>　—— 本文主要针对的是使用 <code>BIOS</code> 和 <code>MBR</code> 的计算机，不过考虑到目前都开始使用支持 <code>UEFI</code> 的机器<br>　—— 并且可能由于部分原因需要使用 <code>GPT</code> ，所以附上相关安装方法，但安装方法本人尚未测试</p>
 <span id="more"></span>
 
@@ -318,449 +757,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Git 的常用命令</title>
-    <url>/Rules/git-common-commands.html</url>
-    <content><![CDATA[<h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><h5 id="配置用户名和邮箱"><a href="#配置用户名和邮箱" class="headerlink" title="配置用户名和邮箱"></a>配置用户名和邮箱</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;zhazhahui&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;zhazhahui@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>配置好用户名和邮箱后，会在当前用户主目录下建立 <code>.gitconfig</code> 文件，<br>该配置文件即 <code>git</code> 全局配置的文件，一般配置方法为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global &lt;配置名称&gt; &lt;配置的值&gt;</span><br></pre></td></tr></table></figure>
-<p>假如想在某个项目里设置某个值与全局设置有区别，可以把 <code>--global</code> 去掉，<br>会在当前项目目录下创建 <code>.git/config</code> 来对当前项目配置单独生效</p>
-</blockquote>
-<h5 id="创建SSK密钥"><a href="#创建SSK密钥" class="headerlink" title="创建SSK密钥"></a>创建SSK密钥</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;zhazhahui@example.com&quot;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>创建成功后，用户主目录会生成 <code>.ssh</code> ，含 <code>id_rsa</code> 、<code>id_rsa.pub</code> 两个文件，即 <code>SSH Key</code> 的密钥对<br><code>id_rsa</code> (私钥)不能泄露出去，<code>id_rsa.pub</code> (公钥)可以放心告诉任何人</p>
-</blockquote>
-<h5 id="公钥贴到-Github"><a href="#公钥贴到-Github" class="headerlink" title="公钥贴到 Github"></a>公钥贴到 <a href="https://github.com/" title="点击跳转至GIthub官网..">Github</a></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cat /home/&lt;user&gt;/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>tip：　文件的路径根据自己的实际路径进行更改</p>
-</blockquote>
-<hr>
-<h2 id="其他常用命令"><a href="#其他常用命令" class="headerlink" title="其他常用命令"></a>其他常用命令</h2><h3 id="remote"><a href="#remote" class="headerlink" title="remote"></a>remote</h3><hr>
-<h5 id="查看所有的远程主机，使用-v-可以查看远程主机的网址"><a href="#查看所有的远程主机，使用-v-可以查看远程主机的网址" class="headerlink" title="查看所有的远程主机，使用 -v 可以查看远程主机的网址"></a>查看所有的远程主机，使用 <code>-v</code> 可以查看远程主机的网址</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
-
-<h5 id="关联远程主机，并设主机名为-origin"><a href="#关联远程主机，并设主机名为-origin" class="headerlink" title="关联远程主机，并设主机名为 origin"></a>关联远程主机，并设主机名为 <code>origin</code></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote add origin https://github.com/liangzaiming/example.git</span><br></pre></td></tr></table></figure>
-
-<h5 id="删除主机名为-origin-的远程主机"><a href="#删除主机名为-origin-的远程主机" class="headerlink" title="删除主机名为 origin 的远程主机"></a>删除主机名为 <code>origin</code> 的远程主机</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git remote remove origin</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><hr>
-<h5 id="查看当前所在分支的情况"><a href="#查看当前所在分支的情况" class="headerlink" title="查看当前所在分支的情况"></a>查看当前所在分支的情况</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建分支-a"><a href="#创建分支-a" class="headerlink" title="创建分支 a"></a>创建分支 a</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch a</span><br></pre></td></tr></table></figure>
-
-<h5 id="切换到分支-a"><a href="#切换到分支-a" class="headerlink" title="切换到分支 a"></a>切换到分支 a</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout a</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建并切换到分支-a"><a href="#创建并切换到分支-a" class="headerlink" title="创建并切换到分支 a"></a>创建并切换到分支 a</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git checkout -b a</span><br></pre></td></tr></table></figure>
-
-<h5 id="删除分支-a-，若-a-分支的内容没合并到其他分支，则需要使用-D-强制删除"><a href="#删除分支-a-，若-a-分支的内容没合并到其他分支，则需要使用-D-强制删除" class="headerlink" title="删除分支 a ，若 a 分支的内容没合并到其他分支，则需要使用 -D 强制删除"></a>删除分支 a ，若 a 分支的内容没合并到其他分支，则需要使用 <code>-D</code> 强制删除</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git branch -d a</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><hr>
-<h5 id="合并分支-a-的内容到分支-master-上（必须把所在分支切换到-master-上）"><a href="#合并分支-a-的内容到分支-master-上（必须把所在分支切换到-master-上）" class="headerlink" title="合并分支 a 的内容到分支 master 上（必须把所在分支切换到 master 上）"></a>合并分支 a 的内容到分支 <code>master</code> 上（必须把所在分支切换到 <code>master</code> 上）</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git merge a</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><hr>
-<h5 id="从远程库克隆-repository-到当前文件夹"><a href="#从远程库克隆-repository-到当前文件夹" class="headerlink" title="从远程库克隆 repository 到当前文件夹"></a>从远程库克隆 <code>repository</code> 到当前文件夹</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/liangzaiming/example.git</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="status"><a href="#status" class="headerlink" title="status"></a>status</h3><hr>
-<h5 id="显示工作树状态"><a href="#显示工作树状态" class="headerlink" title="显示工作树状态"></a>显示工作树状态</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>0x00</p>
-<blockquote>
-<p>添加文件并更新推送到远程 <code>master</code> 分支</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add &lt;fileName&gt;</span><br><span class="line">$ git commit -m <span class="string">&quot;Here write the changes of explain&quot;</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<p>0x01</p>
-<blockquote>
-<p>删除文件并更新推送到远程 <code>master</code> 分支</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm &lt;fileName&gt;</span><br><span class="line">$ git commit -m <span class="string">&quot;Here write the changes of explain&quot;</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>0x02</p>
-<blockquote>
-<p>从远程 <code>master</code> 分支下载更新的内容到本地（多人协作时 <code>push</code> 先 <code>pull</code> ，不容易发生冲突）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<p>Tips:   By the way, if u want to know even more operations for the git.<br>plese click this net link：<a href="https://pan.baidu.com/s/1PT6oJIsxkRJjnvIHdeOzlg">learn-github-from-zero.pdf</a>　　password： <del>6hbd</del></p>
-</blockquote>
-<hr>
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>Time</th>
-<th>Remark</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>create</td>
-<td>2015.10.22</td>
-<td>创建并记录部分语法</td>
-</tr>
-<tr>
-<td>update</td>
-<td>2016.08.11</td>
-<td>重构文章的内容和排版,并增加部分语法</td>
-</tr>
-<tr>
-<td>update</td>
-<td>2017.04.11</td>
-<td>添加部分常用的语法</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>Rules</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 搭建个人静态博客到 GitPages</title>
-    <url>/Technique/hexo-build-a-personal-static-blog-to-gitpages.html</url>
-    <content><![CDATA[<blockquote>
-<p>好久没碰这个博客了，本来单纯想升级一下的，都已经备份好了，结果不小心 <code>rm -rf</code>，删完备份删源文件，傻傻分不清楚，简直完美，两天没睡觉真的会出事！！不过window下还留了个旧旧的源文件，提个大概配置信息差不多了，趁着事儿不多，重装一遍，正好也可以写个博客记录一下！</p>
-</blockquote>
-<h3 id="一、安装准备"><a href="#一、安装准备" class="headerlink" title="一、安装准备"></a>一、安装准备</h3><h5 id="1x01-安装-npm"><a href="#1x01-安装-npm" class="headerlink" title="1x01.  安装  npm"></a>1x01.  安装  <code>npm</code></h5><p>​    不晓得是不是得装 <code>Node.js</code> ，我就不瞎折腾了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo pacman -S npm	<span class="comment"># npm install cnpm -g --registry=https://registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="1x02-安装-hexo"><a href="#1x02-安装-hexo" class="headerlink" title="1x02.  安装 hexo"></a>1x02.  安装 <code>hexo</code></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install -g hexo-cli		<span class="comment"># sudo cnpm install -g hexo-cli</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="二、建立网站"><a href="#二、建立网站" class="headerlink" title="二、建立网站"></a>二、建立网站</h3><h5 id="2x01-初始化-hexo"><a href="#2x01-初始化-hexo" class="headerlink" title="2x01.  初始化 hexo"></a>2x01.  初始化 hexo</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo init ./Github/demoToGrn.github.io	<span class="comment"># 根据自己的存放位置更改，`&lt;user&gt;.github.io` 是固定的</span></span><br><span class="line">$ <span class="built_in">cd</span> ./Github/demoToGrn.github.io/</span><br><span class="line">$ sudo npm install</span><br></pre></td></tr></table></figure>
-
-<p>生成的树状目录如下:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml     # 网站的配置信息</span><br><span class="line">├── package.json    # 应用程序的信息</span><br><span class="line">├── scaffolds       # 模版文件夹，新建文章时，Hexo 会根据 scaffold 来建立文件</span><br><span class="line">├── source          # 存放用户的资源文件</span><br><span class="line">|   ├── _drafts     # 除 _posts 外， _ 开头的文件&#x2F;文件夹和隐藏的文件都会被忽略</span><br><span class="line">|   └── _posts	    # 用户写的文章都会存放在这</span><br><span class="line">└── themes          # 存放主题，Hexo 会根据主题来生成静态页面</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="2x02-测试网站"><a href="#2x02-测试网站" class="headerlink" title="2x02. 测试网站"></a>2x02. 测试网站</h5><p>在本地启动一个服务，不指定 <code>port</code> 会默认启动 <code>4000</code> 端口，<code>s</code> 为 <code>server</code> 的简写<br>能启动那就可以正常使用了，接下来就是配置，也就是美妆…</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo s -p 5000		<span class="comment"># http://localhost:5000/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="三、个性化设置"><a href="#三、个性化设置" class="headerlink" title="三、个性化设置"></a>三、个性化设置</h2><h5 id="3x01-Next主题配置"><a href="#3x01-Next主题配置" class="headerlink" title="3x01. Next主题配置"></a>3x01. Next主题配置</h5><h6 id="a-下载Next主题"><a href="#a-下载Next主题" class="headerlink" title="a. 下载Next主题"></a>a. 下载Next主题</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes</span><br><span class="line">$ sudo git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next.git ./next</span><br></pre></td></tr></table></figure>
-
-<h6 id="b-在网站根目录下的-config-yml-中更换主题为Next"><a href="#b-在网站根目录下的-config-yml-中更换主题为Next" class="headerlink" title="b. 在网站根目录下的 _config.yml 中更换主题为Next"></a>b. 在<code>网站根目录</code>下的 <code>_config.yml</code> 中更换主题为Next</h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">themes: next</span><br></pre></td></tr></table></figure>
-
-<h6 id="c-设置文章默认不展开全部，只抽取120个字做摘要，主题配置文件"><a href="#c-设置文章默认不展开全部，只抽取120个字做摘要，主题配置文件" class="headerlink" title="c. 设置文章默认不展开全部，只抽取120个字做摘要，主题配置文件"></a>c. 设置文章默认不展开全部，只抽取120个字做摘要，<code>主题配置文件</code></h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: <span class="number">120</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="d-右下角置顶图标显示滑动条百分比进度，主题配置文件"><a href="#d-右下角置顶图标显示滑动条百分比进度，主题配置文件" class="headerlink" title="d. 右下角置顶图标显示滑动条百分比进度，主题配置文件"></a>d. 右下角置顶图标显示滑动条百分比进度，<code>主题配置文件</code></h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">scrollpercent: true</span><br></pre></td></tr></table></figure>
-
-<p>ps： 其他零零碎碎的感觉写完也得写大半天，官网写得也很详细，下面只记录几个常用的就好…</p>
-<h5 id="3x02-一些还不错的配置"><a href="#3x02-一些还不错的配置" class="headerlink" title="3x02. 一些还不错的配置"></a>3x02. 一些还不错的配置</h5><blockquote>
-<p>tips：在大天朝如果感觉 <code>npm</code> 访问速度慢的话，可以再安装淘宝家的 <code>cnpm</code>，替换 <code>npm</code> 使用</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<h6 id="a-Local-Search"><a href="#a-Local-Search" class="headerlink" title="a. Local Search"></a>a. Local Search</h6><p>需要在<code>网站根目录</code>安装，然后在<code>主题配置文件</code>中配置，即Next主题中的配置文件 <code>_config.yml</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install hexo-generator-searchdb --save		<span class="comment"># sudo cnpm install hexo-generator-searchdb --save</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="b-来必力评论系统"><a href="#b-来必力评论系统" class="headerlink" title="b. 来必力评论系统"></a>b. 来必力评论系统</h6><p>直接登录 <a href="http://www.laibili.com.cn/">来必力官网</a>，注册帐号开个页面，然后把 <code>uid</code> 拿回来丢到 <code>主题配置文件</code>中即可 </p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">livere_uid: <span class="number">7</span>f5391632a2331b1aa5508ddxxxxxxxxx</span><br></pre></td></tr></table></figure>
-
-<h6 id="c-文章设置密码访问"><a href="#c-文章设置密码访问" class="headerlink" title="c. 文章设置密码访问"></a>c. 文章设置密码访问</h6><p>​        把 <code>&lt;script&gt;</code> 中的代码复制到 <code>themes/next/layout/_partials/head.swig</code> 中，然后在文章头添加 <code>password：xxx</code> 即可给该文章设置访问密码，不添加或为空时表示不加密；代码中的网址了解一下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prompt(<span class="string">&#x27;请输入文章密码&#x27;</span>) !== <span class="string">&#x27;&#123;&#123; page.password &#125;&#125;&#x27;</span>)&#123;</span><br><span class="line">                alert(<span class="string">&#x27;密码错误！&#x27;</span>);</span><br><span class="line">                <span class="keyword">if</span>(history.length==<span class="number">1</span>)</span><br><span class="line">                    location.replace(<span class="string">&quot;http://saltedfish.org&quot;</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="d-给鼠标添加爱心点击特效"><a href="#d-给鼠标添加爱心点击特效" class="headerlink" title="d. 给鼠标添加爱心点击特效"></a>d. 给鼠标添加爱心点击特效</h6><p>​        添加 <a href="https://github.com/Neveryu/Neveryu.github.io/blob/master/js/src/love.js">love.js</a> 文件到 <code>/themes/next/source/js/</code> ，在 <code>\themes\next\layout\_layout.swig</code> 末尾处添加代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/js/love.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="e-文章添加阴影特效"><a href="#e-文章添加阴影特效" class="headerlink" title="e. 文章添加阴影特效"></a>e. 文章添加阴影特效</h6><p>​        把下面代码添加到 <code>themes/next/source/css/_custom/custom.styl</code> 中即可</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.post-block</span> &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">    -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">    -moz-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="f-文末标签-换成图片"><a href="#f-文末标签-换成图片" class="headerlink" title="f.  文末标签 # 换成图片  "></a>f.  文末标签 <code>#</code> 换成图片  <i class="fa fa-tag"></i></h6><p>​        修改模板 <code>/themes/next/layout/_macro/post.swig</code> ，搜索 <code>rel=&quot;tag&quot;#</code> ，<br>​        将 <code>#</code> 换成 <code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code> 即可</p>
-<h6 id="g-右侧栏头像变圆可旋转"><a href="#g-右侧栏头像变圆可旋转" class="headerlink" title="g. 右侧栏头像变圆可旋转"></a>g. 右侧栏头像变圆可旋转</h6><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line">  <span class="comment">/* 头像圆形 */</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#333</span>sf;</span><br><span class="line">  <span class="comment">/* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 </span></span><br><span class="line"><span class="comment">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  -webkit-<span class="attribute">transition</span>: -webkit-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  -moz-<span class="attribute">transition</span>: -moz-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转 </span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  -webkit-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  -moz-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Z 轴旋转动画 */</span></span><br><span class="line"><span class="keyword">@-webkit-keyframes</span> play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@-moz-keyframes</span> play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    -moz-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    -moz-<span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@keyframes</span> play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="h-恶搞网站-Title"><a href="#h-恶搞网站-Title" class="headerlink" title="h. 恶搞网站 Title"></a>h. 恶搞网站 Title</h6><p>​        创建文件 <code>title-cheat.js</code>，添加以下代码，然后移动到 <code>/themes/next/source/js/</code> 下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!--崩溃欺骗--&gt;</span><br><span class="line"><span class="keyword">var</span> OriginTitile = <span class="built_in">document</span>.title;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.hidden) &#123;</span><br><span class="line">        $(<span class="string">&#x27;[rel=&quot;icon&quot;]&#x27;</span>).attr(<span class="string">&#x27;href&#x27;</span>, <span class="string">&quot;/img/TEP.ico&quot;</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">&#x27;╭(°A°`)╮ 页面崩溃啦 ~ &#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="string">&#x27;[rel=&quot;icon&quot;]&#x27;</span>).attr(<span class="string">&#x27;href&#x27;</span>, <span class="string">&quot;/favicon.ico&quot;</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">&#x27;(ฅ&gt;ω&lt;*ฅ) 嘿嘿又好了 ~ &#x27;</span> + OriginTitile;</span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.title = OriginTitile;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>/themes/next/layout/_layout.swig</code> 中引入以下代码</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!--崩溃欺骗--&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/js/title-cheat.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="i-添加在线联系功能（类似网页客服）"><a href="#i-添加在线联系功能（类似网页客服）" class="headerlink" title="i. 添加在线联系功能（类似网页客服）"></a>i. 添加在线联系功能（类似网页客服）</h6><p>ix01. 打开 <code>/themes/next/layout/_partials/head.swig</code> ，随便找个位置粘贴下面的代码</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> theme.daovoice %&#125;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">i,s,o,g,r,a,m</span>)</span>&#123;i[<span class="string">&quot;DaoVoiceObject&quot;</span>]=r;i[r]=i[r]||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;(i[r].q=i[r].q||[]).push(<span class="built_in">arguments</span>)&#125;,i[r].l=<span class="number">1</span>*<span class="keyword">new</span> <span class="built_in">Date</span>();a=s.createElement(o),m=s.getElementsByTagName(o)[<span class="number">0</span>];a.async=<span class="number">1</span>;a.src=g;a.charset=<span class="string">&quot;utf-8&quot;</span>;m.parentNode.insertBefore(a,m)&#125;)(<span class="built_in">window</span>,<span class="built_in">document</span>,<span class="string">&quot;script&quot;</span>,(<span class="string">&#x27;https:&#x27;</span> == <span class="built_in">document</span>.location.protocol ? <span class="string">&#x27;https:&#x27;</span> : <span class="string">&#x27;http:&#x27;</span>) + <span class="string">&quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;</span>,<span class="string">&quot;daovoice&quot;</span>)</span><br><span class="line">  daovoice(<span class="string">&#x27;init&#x27;</span>, &#123;</span><br><span class="line">      app_id: <span class="string">&quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot;</span></span><br><span class="line">    &#125;);</span><br><span class="line">  daovoice(<span class="string">&#x27;update&#x27;</span>);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ix02. 点击 <a href="http://dashboard.daovoice.io/get-started?invite_code=591a4b70">DaoVoice官网</a> 进行注册，提取网站给的 <code>app_id</code> ，打开<code>主题配置文件</code>，加入下面代码，把 <code>app_id</code> 替换进去</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"># Online contact</span><br><span class="line">daovoice: true</span><br><span class="line">daovoice_app_id: &#123;your app_id&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>如果没什么错误，网站右下角会出现一个聊天图标，但是这时候我们会发现，它把我们网页中部分按钮给遮挡住了！其实在官网设置一下聊天窗口样式就好了，具体路径：<code>应用设置 &gt; 聊天设置</code>，找不到记得往下拉一点</p>
-</blockquote>
-<h2 id="四、网站性能优化"><a href="#四、网站性能优化" class="headerlink" title="四、网站性能优化"></a>四、网站性能优化</h2><h6 id="ax01-压缩渲染完的博文"><a href="#ax01-压缩渲染完的博文" class="headerlink" title="ax01. 压缩渲染完的博文"></a>ax01. 压缩渲染完的博文</h6><blockquote>
-<p> <code>hexo generator</code> 生成的页面中有很多空行和无用的空格，为了减少客户的访问流量，压缩 <code>html</code>、<code>css</code> 和 <code>js</code></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install gulp -g		<span class="comment"># sudo cnpm install gulp -g</span></span><br><span class="line">$ sudo npm install gulp-minify-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp --save</span><br></pre></td></tr></table></figure>
-
-
-<p>创建 <code>gulpfile.js</code> 文件，把下面的代码复制进去，然后移动到 <code>package.json</code> 同级目录下</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">&#x27;gulp-minify-css&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&#x27;gulp-uglify&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlmin&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-htmlclean&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩 public 目录 css</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-css&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./public/**/*.css&#x27;</span>)</span><br><span class="line">        .pipe(minifycss())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 压缩 public 目录 html</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-html&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./public/**/*.html&#x27;</span>)</span><br><span class="line">    .pipe(htmlclean())</span><br><span class="line">    .pipe(htmlmin(&#123;</span><br><span class="line">         removeComments: <span class="literal">true</span>,</span><br><span class="line">         minifyJS: <span class="literal">true</span>,</span><br><span class="line">         minifyCSS: <span class="literal">true</span>,</span><br><span class="line">         minifyURLs: <span class="literal">true</span>,</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./public&#x27;</span>))</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 压缩 public/js 目录 js</span></span><br><span class="line">gulp.task(<span class="string">&#x27;minify-js&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">&#x27;./public/**/*.js&#x27;</span>)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">&#x27;./public&#x27;</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 执行 gulp 命令时执行的任务</span></span><br><span class="line">gulp.task(<span class="string">&#x27;default&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;minify-html&#x27;</span>,<span class="string">&#x27;minify-css&#x27;</span>,<span class="string">&#x27;minify-js&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
-
-<h6 id="ax02-简化测试与部署等操作（纯个人习惯）"><a href="#ax02-简化测试与部署等操作（纯个人习惯）" class="headerlink" title="ax02. 简化测试与部署等操作（纯个人习惯）"></a>ax02. 简化测试与部署等操作（纯个人习惯）</h6><p>在 <code>package.json</code> 中添加多个合并的操作命令</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;d&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; gulp &amp;&amp; hexo d&quot;,</span><br><span class="line">    &quot;local&quot;: &quot;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>远程部署： <code>sudo npm run d</code> </p>
-<p>本地调试： <code>sudo npm run local</code></p>
-<p>ps：使用 <code>deploy</code> 的时候，远程部署得先配置好，下面一节正好讲到</p>
-</blockquote>
-<hr>
-<h2 id="五、部署到-Github"><a href="#五、部署到-Github" class="headerlink" title="五、部署到 Github"></a>五、部署到 Github</h2><h6 id="a-在-Github-上创建一个-repository-，命名为-lt-uesr-gt-github-io"><a href="#a-在-Github-上创建一个-repository-，命名为-lt-uesr-gt-github-io" class="headerlink" title="a. 在 Github 上创建一个 repository ，命名为 &lt;uesr&gt;.github.io"></a>a. 在 <a href="https://github.com/">Github</a> 上创建一个 <code>repository</code> ，命名为 <code>&lt;uesr&gt;.github.io</code></h6><h6 id="b-为-Hexo-安装-git-插件，并-在站点配置文件中加入以下配置-，即网站根目录下的-config-yml"><a href="#b-为-Hexo-安装-git-插件，并-在站点配置文件中加入以下配置-，即网站根目录下的-config-yml" class="headerlink" title="b. 为 Hexo 安装 git 插件，并 在站点配置文件中加入以下配置 ，即网站根目录下的 _config.yml"></a>b. 为 Hexo 安装 git 插件，并 在<code>站点配置文件</code>中加入以下配置 ，即<code>网站根目录</code>下的 <code>_config.yml</code></h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo npm install hexo-deployer-git --save		<span class="comment"># sudo cnpm install hexo-deployer-git --save	</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/demoToGrn/demoToGrn.github.io.git	# 根据自己的改</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<h6 id="c-生成静态文件并部署到-Github"><a href="#c-生成静态文件并部署到-Github" class="headerlink" title="c. 生成静态文件并部署到 Github"></a>c. 生成静态文件并部署到 Github</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo hexo clean			<span class="comment"># 清除缓存</span></span><br><span class="line">$ sudo hexo g				<span class="comment"># 生成静态文件，可以部署之前 `sudo gulp` ，压缩渲染完的文件（步骤ax01）</span></span><br><span class="line">$ sudo hexo d				<span class="comment"># 部署到 Github</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="d-绑定域名"><a href="#d-绑定域名" class="headerlink" title="d. 绑定域名"></a>d. 绑定域名</h6><p>​        1. 不绑定默认会使用 <code>https://&lt;user&gt;.github.io</code>，在站点 <code>source</code> 文件中添加 <code>CNAME</code>文件，并在里面写入你的域名，例如：<code>saltedfish.org</code>；或者直接在 <a href="https://github.com/">Github</a> 的 <code>repository</code> 中添加该文件</p>
-<pre><code>    2. 在解析域名服务中添加一条 `CNAME` 记录，比如我的是在腾讯云解析的，添加一条 `CNAME` 记录，让它指向 `GitPages` 的默认域名
-</code></pre>
-<p>设置文章内链接内颜色样式：默认显示蓝色，鼠标放上去显示橙色</p>
-<p>选择<code>.post-body</code>是为了不影响标题，选择<code>p</code>是为了不影响首页 “阅读全文” 的显示样式。</p>
-<p>themes\next\source\css_common\components\post\post.styl</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">// 文章内链接文本样式</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#0593d3</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">0.1px</span> solid <span class="number">#0593d3</span>;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fc6423</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: none;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">0.1px</span> solid <span class="number">#fc6423</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>更改底部信息,E:\Github\cdd233.github.io\themes\next\languages\zh-CN.yml中powered的中文信息</p>
-<p>E:\Github\cdd233.github.io\themes\next\layout_partials\footer.swig</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- if theme.footer.powered %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;powered-by&quot;&gt;</span><br><span class="line">    &#123;%- set next_site &#x3D; &#39;https:&#x2F;&#x2F;theme-next.org&#39; %&#125;</span><br><span class="line">    &#123;%- if theme.scheme !&#x3D;&#x3D; &#39;Gemini&#39; %&#125;</span><br><span class="line">      &#123;%- set next_site &#x3D; &#39;https:&#x2F;&#x2F;&#39; + theme.scheme | lower + &#39;.theme-next.org&#39; %&#125;</span><br><span class="line">    &#123;%- endif %&#125;</span><br><span class="line">    &#123;&#123;- __(&#39;footer.powered&#39;, next_url(&#39;https:&#x2F;&#x2F;hexo.io&#39;, &#39;Hexo&#39;, &#123;class: &#39;theme-link&#39;&#125;) + &#39; &amp; &#39; + next_url(next_site, &#39;NexT.&#39; + theme.scheme, &#123;class: &#39;theme-link&#39;&#125;)) &#125;&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="六、贴上官网教程，其实官网的教程已经很详细了"><a href="#六、贴上官网教程，其实官网的教程已经很详细了" class="headerlink" title="六、贴上官网教程，其实官网的教程已经很详细了"></a>六、贴上官网教程，其实官网的教程已经很详细了</h2><ul>
-<li>Hexo官网： <a href="https://hexo.io/zh-cn/docs/index.html">https://hexo.io/zh-cn/docs/index.html</a></li>
-<li>Next官网：<a href="http://theme-next.iissnan.com/getting-started.html">http://theme-next.iissnan.com/getting-started.html</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Technique</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown 的常用语法</title>
-    <url>/Rules/markdown-common-syntax.html</url>
-    <content><![CDATA[<h2 id="横线"><a href="#横线" class="headerlink" title="横线"></a>横线</h2><blockquote>
-<p><code>=</code> 在文字下使用会使文字出现 <code>一级标题</code> 效果，而自身显示 <code>细横线</code>，空行下使用依然显示为<code>细横线</code><br><code>-</code> 在文字下使用会使文字出现 <code>二级标题</code> 效果，而自身显示 <code>细横线</code> ，空行下如果 <code>-</code> &gt; 3 则为 <code>粗横线</code><br> <code>*</code> 和 <code>_</code> 个数大于3，在文字下或者空行下使用均显示为 <code>粗横线</code></p>
-</blockquote>
-<hr>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>　　<code># 一级</code> 、<code>## 二级</code>，其他依次类推，为了美观也可以这样： <code># 一级 #</code> 、<code>## 二级 ##</code></p>
-<hr>
-<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h4 id="普通文本"><a href="#普通文本" class="headerlink" title="普通文本"></a>普通文本</h4><p>　　这是一段直接输入的普通文本</p>
-<h4 id="单行文本"><a href="#单行文本" class="headerlink" title="单行文本"></a>单行文本</h4><pre><code> 在一行开头加入1个Tab或者4个空格
-</code></pre>
-<h4 id="多行文本"><a href="#多行文本" class="headerlink" title="多行文本"></a>多行文本</h4><pre><code> 语法一：在连续几行文本开头加入1个Tab或者4个空格
- 语法二：使用一对各3个的反引号,该语法也可以实现代码高亮
-</code></pre>
-<h4 id="文字高亮"><a href="#文字高亮" class="headerlink" title="文字高亮"></a>文字高亮</h4><blockquote>
-<p>文字高亮功能可以使行内部文字高亮,使用一对 `反引号` 即可<br>也比较适合做一篇博文的 Tag 效果：<code>fuck</code> <code>the</code> <code>world</code></p>
-</blockquote>
-<h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><blockquote>
-<p>a.　直接回车不能换行，可以在上一行文本后补两个空格，实现换行<br>b.　Markdown语法支持部分 html 标签，可使用 <code>&lt;br&gt;</code> 、<code>&lt;br/&gt;</code> 换行<br>c.　使用空行也可以实现换行，但上下文本间会多出一个空行</p>
-</blockquote>
-<h4 id="斜体、粗体、删除线"><a href="#斜体、粗体、删除线" class="headerlink" title="斜体、粗体、删除线"></a>斜体、粗体、删除线</h4><table>
-<thead>
-<tr>
-<th align="center"><strong>语法</strong></th>
-<th align="center"><strong>效果</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>*斜体*</code> 、<code>_斜体_</code></td>
-<td align="center"><em>斜体</em></td>
-</tr>
-<tr>
-<td align="center"><code>**粗体**</code> 、<code>__粗体__</code></td>
-<td align="center"><strong>粗体</strong></td>
-</tr>
-<tr>
-<td align="center"><code>~~删除线~~</code></td>
-<td align="center"><del>删除线</del></td>
-</tr>
-<tr>
-<td align="center"><code>~~***斜粗删组合***~~</code></td>
-<td align="center"><del><em><strong>斜粗删组合</strong></em></del></td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><h4 id="文字链接"><a href="#文字链接" class="headerlink" title="文字链接"></a>文字链接</h4><blockquote>
-<p>法一： <code>[alt](url &quot;title&quot;)</code></p>
-<blockquote>
-<p>法　<code>[alt][xxx]</code><br>二　<code>[xxx]:url &quot;title&quot;</code></p>
-<blockquote>
-<ul>
-<li>alt　表示替换掉链接所显示的文本</li>
-<li>title　表示鼠标悬停在 alt 时显示的文本(可省略)</li>
-<li>url　点击进行跳转的超链接,可以是内链接也可以是外链接</li>
-<li>xxx　只充当一个标识符，通常第一句占位，第二句放句末便于管理</li>
-</ul>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4 id="图片链接"><a href="#图片链接" class="headerlink" title="图片链接"></a>图片链接</h4><p>　　用法与文字链接一样，区别是前面多了一个 <code>!</code>，而且不能进行跳转</p>
-<blockquote>
-<p>基本格式： <code>![alt](url &quot;title&quot;)</code></p>
-<blockquote>
-<p>法　<code>![alt][xxx]</code><br>二　<code>[xxx]:url &quot;title&quot;</code></p>
-<blockquote>
-<ul>
-<li>alt　表示图片加载失败时的替换文本(可省略)</li>
-<li>title　表示鼠标悬停在图片时显示的文本(可省略)</li>
-<li>url　点击进行跳转的超链接,可以是内链接也可以是外链接</li>
-<li>xxx　只充当一个标识符，通常第一句占位，第二句放句末便于管理</li>
-</ul>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h4><blockquote>
-<p>　本文的目录就是用锚点进行捆绑的，和HTML的锚点 <code>#标记</code> 类似</p>
-</blockquote>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">语法</th>
-<th align="center">效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>[跳到复选框列表](#复选框列表)</code></td>
-<td align="center"><a href="#%E5%A4%8D%E9%80%89%E6%A1%86%E5%88%97%E8%A1%A8">跳到复选框列表</a></td>
-</tr>
-</tbody></table>
-</blockquote>
-<hr>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><blockquote>
-<ul>
-<li><code>* 嘿嘿</code></li>
-</ul>
-<ul>
-<li><code>- 呵呵</code></li>
-</ul>
-<ul>
-<li><code>* 哈哈</code></li>
-</ul>
-</blockquote>
-<h4 id="多级无序列表"><a href="#多级无序列表" class="headerlink" title="多级无序列表"></a>多级无序列表</h4><p>　最高级别顶格 <code>*</code>，级别往下依次加一个Tab或4个空格的距离</p>
-<blockquote>
-<ul>
-<li><code>* 级别最高</code><ul>
-<li><code>* 级别其次</code></li>
-<li><code>* 级别其次</code><ul>
-<li><code>* 级别最低</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><blockquote>
-<p>　就是在数字后面加一个点，再加一个空格。不过看起来起来可能不够明显</p>
-</blockquote>
-<h4 id="有序列表自动排序"><a href="#有序列表自动排序" class="headerlink" title="有序列表自动排序"></a>有序列表自动排序</h4><blockquote>
-<p>在第一行指定 <code>1.</code>，接下来的几行用星号 <code>* </code> ，或者继续用数字 <code>1.</code>，<br>它会自动显示成 <code>2.</code>、<code>3.</code>、<code>4.</code>，接着上一个数字往下自动添加序号</p>
-</blockquote>
-<h4 id="复选框列表"><a href="#复选框列表" class="headerlink" title="复选框列表"></a>复选框列表</h4><p>　　-　( hexo 好像无法渲染，github 倒是可以，这里用特殊字符来展示效果)</p>
-<blockquote>
-<p>语法：<code>- [x] 需求分析</code> 、<code>- [ ] 系统设计</code><br>&#9745; 需求分析<br>&#9745; 系统设计<br>&#9745; 详细设计<br>&#9744; 编码<br>&#9744; 测试<br>&#9744; 交付</p>
-</blockquote>
-<p>　　通常用于标注某个项目各项任务完成情况</p>
-<p>Tip：在 Github 的 <em><strong>issues</strong></em> 中使用该语法可以实时点击复选框来勾选或解除勾选,而无需修改 <em><strong>issues</strong></em> 原文</p>
-<hr>
-<h2 id="块引用"><a href="#块引用" class="headerlink" title="块引用"></a>块引用</h2><h4 id="块引用的多级结构"><a href="#块引用的多级结构" class="headerlink" title="块引用的多级结构"></a>块引用的多级结构</h4><p>　　其实本文为了美化，几乎所有举例的地方都有用到这个功能(与 <code>&gt;</code> 之间可以不空一格)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> 生物</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt; 动物</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; 人类</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;&gt; 小妹妹</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>生物</p>
-<blockquote>
-<p>动物</p>
-<blockquote>
-<p>人类</p>
-<blockquote>
-<p>小妹妹</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<hr>
-<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><blockquote>
-<p>``` java<br>public static oid main(String[] args){}<br>```</p>
-</blockquote>
-<p>​    在3个反引号后面加上编程语言的名称，另起一行开始写代码，最后一行再加上3个反引号</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> oid <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;&#125;	<span class="comment">//java</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> atgc, <span class="keyword">char</span> *argv[])</span>	<span class="comment">//c</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, markdown&quot;</span>	<span class="comment">#bash</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;myH1&quot;</span>).innerHTML=<span class="string">&quot;Welcome to my Homepage&quot;</span>;	<span class="comment">//javascript</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">string &amp;<span class="keyword">operator</span>+(<span class="keyword">const</span> string&amp; A, <span class="keyword">const</span> string&amp; B)	<span class="comment">//cpp</span></span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格展示及语法：</p>
-<table>
-<thead>
-<tr>
-<th align="center">语法1</th>
-<th align="center">语法2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">表头1|表头2</td>
-<td align="center">|表头1|表头2|</td>
-</tr>
-<tr>
-<td align="center">- - - - - |- - - - -</td>
-<td align="center">|- - - - -|- - - - -|</td>
-</tr>
-<tr>
-<td align="center">表格单元|表格单元</td>
-<td align="center">|表格单元|表格单元|</td>
-</tr>
-<tr>
-<td align="center">表格单元|表格单元</td>
-<td align="center">|表格单元|表格单元|</td>
-</tr>
-</tbody></table>
-<h4 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h4><blockquote>
-<p>中对齐,右对齐,左对齐：<code>:----:|----:|:----</code><br>左对齐,中对齐,右对齐：<code>|:----|:-----:|-----:|</code></p>
-</blockquote>
-<h4 id="表格嵌入其他语法"><a href="#表格嵌入其他语法" class="headerlink" title="表格嵌入其他语法"></a>表格嵌入其他语法</h4><p>　　表格还可以嵌入其他语法,如对文字的设置、表格嵌入图片、链接等其他内容，此处不作演示</p>
-<hr>
-<blockquote>
-<blockquote>
-<p>tips:<br>本文整理自 Github 上的大牛，并根据个人习惯进行修改处理<br><code>createTime</code>：2016.08.07　18:02:10</p>
-</blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Rules</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL 常用语法</title>
-    <url>/Rules/MySQL-common-syntax.html</url>
+    <url>/Rules/59fbd90c.html</url>
     <content><![CDATA[<p>DDL：Data Definition Language     数据定义语言<br>DML：Data Manipulation Language    数据操纵语言</p>
 <hr>
 <h2 id="约束条件"><a href="#约束条件" class="headerlink" title="约束条件"></a>约束条件</h2><table>
@@ -974,7 +972,7 @@
   </entry>
   <entry>
     <title>「Scrapy」爬虫过程中避免被禁的几个小方法</title>
-    <url>/Python/several-small-methods-to-avoid-being-forbidden-in-the-process-of-web-crawler.html</url>
+    <url>/Python/8cd17fc.html</url>
     <content><![CDATA[<h3 id="0x01-动态设置-UserAgent"><a href="#0x01-动态设置-UserAgent" class="headerlink" title="0x01. 动态设置 UserAgent"></a>0x01. 动态设置 UserAgent</h3><blockquote>
 <p>通过不停地切换 <code>UserAgent</code> ，模拟使用不同的浏览器访问</p>
 </blockquote>
@@ -1027,7 +1025,7 @@
   </entry>
   <entry>
     <title>「Scrapy」自定义图片管道 ImagesPipeline 下载图片</title>
-    <url>/Python/custom-picture-pipeline(Imagespipeline)-to-download-pictures.html</url>
+    <url>/Python/aa344f5b.html</url>
     <content><![CDATA[<p>题外话：前些天不是重新搭建了 hexo 吗，然后今天有个知识点忘记了，想看看之前的笔记，结果发现，没了，是真的没了！！沃日，之前重新搭建的时候忘记备份了，因为 window 下有一份旧资料，恰巧那份旧资料是几乎没同步过，所以出事了…    教训：<font color="red">凡事记得先备份！！</font></p>
 <hr>
 <h2 id="一、使用场景"><a href="#一、使用场景" class="headerlink" title="一、使用场景"></a>一、使用场景</h2><p>当我们在抓取某些资源的时候，刚好同时想下载它的图片的时候，就可以用到 <code>scrapy</code> 提供的一个 <code>item pipeline</code> ，这条管道被称作图片管道，在 <a href="https://scrapy-chs.readthedocs.io/zh_CN/latest/topics/images.html#scrapy.contrib.pipeline.images.ImagesPipeline">ImagesPipeline</a> 类中实现，提供了一个方便并具有额外特性的方法，来下载并本地存储图片:</p>
@@ -1075,7 +1073,7 @@
   </entry>
   <entry>
     <title>利用 PyInstaller 打包发布 exe 程序</title>
-    <url>/Python/package-and-release-exe-program-with-PyInstaller.html</url>
+    <url>/Python/53934d9f.html</url>
     <content><![CDATA[<p>在 window 下每次运行 python 脚本都得打开 CMD ，简直难受得一批！找了一下可以打包成 exe 程序的库，事情一下子就轻松得多了！</p>
 <h5 id="一、安装准备"><a href="#一、安装准备" class="headerlink" title="一、安装准备"></a>一、安装准备</h5><h6 id="0x01-安装-pywin32"><a href="#0x01-安装-pywin32" class="headerlink" title="0x01. 安装 pywin32"></a>0x01. 安装 pywin32</h6><p>下载适用于 window 版本和 python 版本匹配的 <a href="https://sourceforge.net/projects/pywin32/files/pywin32/">pywin32</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install &lt;pywin32本地文件&gt;</span><br></pre></td></tr></table></figure>
@@ -1121,7 +1119,7 @@
   </entry>
   <entry>
     <title>「Private」利用 Python 制作一个 番羽 士啬 脚本</title>
-    <url>/Python/using-python-to-make-a-vpn-script.html</url>
+    <url>/Python/3f9c9ab4.html</url>
     <content><![CDATA[<blockquote>
 <p>相信有部分玩家跟我一样，对墙外的需求不多，只是偶尔用一下！但是呢，梯子资源难找，幸运的是我这里收集了几个一直提供免费的资源网站，在修改 <code>host</code> 的方法逐渐消失的时候还可以舒服一小哈子！将就吧！</p>
 </blockquote>
@@ -1170,7 +1168,7 @@
   </entry>
   <entry>
     <title>正则表达式</title>
-    <url>/Rules/regex.html</url>
+    <url>/Rules/2f57a694.html</url>
     <content><![CDATA[<ol>
 <li><p>界定符</p>
 <ul>
